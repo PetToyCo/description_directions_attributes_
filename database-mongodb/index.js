@@ -13,7 +13,10 @@ db.once('open', () => {
 
 const descriptionSchema = new mongoose.Schema({
   itemId: String,
-  title: String,
+  title: {
+    type: String,
+    required: true
+  },
   description: String,
   SKU: String,
   primaryBrand: String,

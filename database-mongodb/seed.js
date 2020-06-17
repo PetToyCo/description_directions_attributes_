@@ -1,5 +1,4 @@
-const Description = require('./index.js');
-
+const db = require('./index.js')
 
 const itemData = [
   {
@@ -1405,9 +1404,13 @@ const itemData = [
 ];
 
 const insertItemData = () => {
-  Description.create(itemData)
+  db.Description.create(itemData)
   .then(() => {
     console.log('DB seeded');
+    db.db.disconnect();
+  })
+  .catch(err => {
+    console.log('error inserting item data in db: ', err);
   })
 }
 

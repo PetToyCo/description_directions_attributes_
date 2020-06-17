@@ -1,21 +1,32 @@
 const mongoose = require('mongoose');
-const db = mongoose.connect('mongodb://localhost/description_directions_attributes');
+mongoose.connect('mongodb://localhost/description_directions_attributes');
+
+db = mongoose.connection;
+
+db.on('error', () => {
+  console.log('error connecting to db');
+})
+
+db.once('open', () => {
+  console.log('connected to db');
+})
 
 const descriptionSchema = new mongoose.Schema({
-  itemId: STRING,
-  title: STRING,
-  description: STRING,
-  SKU: INTEGER,
-  primaryBrand: STRING,
-  daysToShip: STRING,
-  directions: STRING,
-  primaryColor: STRING,
-  material: STRING,
-  length: STRING,
-  width: STRING,
-  additionalDetails: STRING
+  itemId: String,
+  title: String,
+  description: String,
+  SKU: String,
+  primaryBrand: String,
+  daysToShip: String,
+  directions: String,
+  primaryColor: String,
+  material: String,
+  length: String,
+  width: String,
+  additionalDetails: String
 });
 
 const Description = mongoose.model('Description', descriptionSchema);
 
-module.exports = Description;
+module.exports.Description = Description;
+module.exports.db = db;

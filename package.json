@@ -24,6 +24,7 @@
   "homepage": "https://github.com/PetToyCo/description_directions_attributes_#readme",
   "devDependencies": {
     "@shelf/jest-mongodb": "^1.1.5",
+    "eslint": "^7.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.0.1"
   },

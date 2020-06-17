@@ -1,4 +1,3 @@
-/* eslint-env mocha */
 const mongoose = require('mongoose');
 const db = require('../database-mongodb/index');
 

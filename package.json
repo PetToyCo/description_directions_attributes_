@@ -1,0 +1,36 @@
+{
+  "name": "description_directions_attributes_",
+  "version": "1.0.0",
+  "description": "Provides additional description and item details",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "nodemon server.js"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PetToyCo/description_directions_attributes_.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PetToyCo/description_directions_attributes_/issues"
+  },
+  "homepage": "https://github.com/PetToyCo/description_directions_attributes_#readme",
+  "devDependencies": {
+    "@shelf/jest-mongodb": "^1.1.5",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "jest": "^26.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19",
+    "nodemon": "^2.0.4"
+  }
+}

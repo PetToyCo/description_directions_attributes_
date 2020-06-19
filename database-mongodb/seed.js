@@ -1,6 +1,6 @@
 const db = require('./index.js')
-const Promise = require('bluebird');
 const mongoose = require('mongoose');
+const faker = require('faker');
 
 const itemData = [
   {
@@ -154,29 +154,26 @@ const generateRecords = () => {
 
     newDoc = {
       itemId: itemId,
-      title: 'BestFriends Rubber Bone with Chicken Flavor',
-      description: 'Lorem ipsum dolor sit amet. Consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      SKU: '2342048',
-      primaryBrand: 'BestFriends',
-      daysToShip: 'Ships In Two Business Days',
-      directions: 'CAUTION: Intended for pet use only. Not a childs toy. Choose toys based on dogs playing habits. Toys should be large enough to not be swallowed. IMPORTANT: No pet toy is indestructible. Small parts present a choking or gastrointestinal blockage risk. Always supervise your pet during play to prevent accidental swallowing of parts. Inspsect toy regularly and replace if any part becomes loose. If toy becomes wet, some color transfer may occur. Spot clean only.',
-      primaryColor: 'Multicolor',
-      material: 'Plush',
-      length: '8 IN',
-      width: '2 IN',
-      additionalDetails: 'Lorem ipsum dolor sit amet. Consectetur adipiscing elit.'
+      title: faker.commerce.productName(),
+      description: faker.lorem.sentences(),
+      SKU: Math.floor(Math.random()*10000000).toString(),
+      primaryBrand: faker.company.companyName(),
+      daysToShip: `Ships In ${faker.random.number(1)} Business Days`,
+      directions: faker.lorem.paragraph(),
+      primaryColor: faker.commerce.color(),
+      material: faker.commerce.productMaterial(),
+      length: `${faker.random.number(1)} IN`,
+      width: `${faker.random.number(1)} IN`,
+      additionalDetails: faker.lorem.paragraph()
     }
 
     itemData.push(newDoc);
     itemId++;
-
-    //return new promise (or async await, better in loops)
   }
 }
 
 generateRecords();
 
-//insert 10 records
 const insertItemData = () => {
   db.Description.create(itemData)
     .then(() => {

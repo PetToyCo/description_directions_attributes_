@@ -34,6 +34,7 @@ const badFakeData = {
 describe('Description Model Test', () => {
 
   beforeAll(async () => {
+    console.log('beforeAll');
     await mongoose.connect('mongodb://localhost/description_directions_attributes', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
       if (err) {
         console.error(err);
@@ -42,18 +43,34 @@ describe('Description Model Test', () => {
     });
   });
 
+  // beforeAll(done => {
+  //   done();
+  // })
 
-  it('creates and saves an item description', async () => {
+  afterAll(async (done) => {
+    console.log('afterAll');
+    await mongoose.connection.close((err) => {
+      if (err) {
+        console.log('error closing mongoose connection: ', err);
+      } else {
+        done();
+      }
+    });
+  })
+
+
+  it('creates and saves an item description', async (done) => {
     const itemDescription = new db.Description(fakeData);
     const savedItem = await itemDescription.save();
 
     expect(savedItem._id).toBeDefined();
     expect(savedItem.title).toBe(fakeData.title);
     expect(savedItem.additionalDetails).toBe(fakeData.additionalDetails);
+    done();
   });
 
 
-  it('should not save an item description if a required field is empty', async () => {
+  it('should not save an item description if a required field is empty', async (done) => {
     const badItemDescription = new db.Description(badFakeData);
     let err;
 
@@ -65,6 +82,7 @@ describe('Description Model Test', () => {
     }
 
     expect(err).toBeInstanceOf(mongoose.Error.ValidationError);
+    done();
   })
 
 })

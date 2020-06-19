@@ -158,12 +158,12 @@ const generateRecords = () => {
       description: faker.lorem.sentences(),
       SKU: Math.floor(Math.random()*10000000).toString(),
       primaryBrand: faker.company.companyName(),
-      daysToShip: `Ships In ${faker.random.number(1)} Business Days`,
+      daysToShip: `Ships In ${Math.floor(Math.random()*10)} Business Days`,
       directions: faker.lorem.paragraph(),
       primaryColor: faker.commerce.color(),
       material: faker.commerce.productMaterial(),
-      length: `${faker.random.number(1)} IN`,
-      width: `${faker.random.number(1)} IN`,
+      length: `${Math.floor(Math.random()*10)} IN`,
+      width: `${Math.floor(Math.random()*10)} IN`,
       additionalDetails: faker.lorem.paragraph()
     }
 

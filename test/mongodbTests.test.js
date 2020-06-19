@@ -43,10 +43,6 @@ describe('Description Model Test', () => {
     });
   });
 
-  // beforeAll(done => {
-  //   done();
-  // })
-
   afterAll(async (done) => {
     console.log('afterAll');
     await mongoose.connection.close((err) => {

@@ -31,5 +31,15 @@ const descriptionSchema = new mongoose.Schema({
 
 const Description = mongoose.model('Description', descriptionSchema);
 
+const getItemInfo = (itemId) => {
+
+}
+
+const getDescriptionObject = (itemId) => {
+
+}
+
 module.exports.Description = Description;
 module.exports.db = db;
+module.exports.getItemInfo = getItemInfo;
+module.exports.getDescriptionObject = getDescriptionObject;

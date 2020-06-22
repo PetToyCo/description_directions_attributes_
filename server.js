@@ -42,6 +42,8 @@ app.get('/descriptionObject/:itemId', (req, res) => {
 
 });
 
-app.listen(3002, () => {
-  console.log('Express server listening on port 3002');
-});
+// app.listen(3002, () => {
+//   console.log('Express server listening on port 3002');
+// });
+
+module.exports = app;

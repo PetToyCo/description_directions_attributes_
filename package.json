@@ -7,7 +7,7 @@
     "react-dev": "webpack -d --watch",
     "test": "jest --forceExit --detectOpenHandles",
     "seed": "node database-mongodb/seed.js",
-    "start": "nodemon server.js"
+    "start": "nodemon start.js"
   },
   "standard": {
     "env": [
@@ -33,6 +33,7 @@
     "eslint": "^7.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^26.0.1",
+    "supertest": "^4.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"
   },

@@ -31,7 +31,7 @@ const badFakeData = {
 };
 
 
-describe('Description Model Test', () => {
+describe('Description Model and Associated Helper Functions Test', () => {
 
   beforeAll(async () => {
     console.log('beforeAll');
@@ -81,5 +81,32 @@ describe('Description Model Test', () => {
     done();
   })
 
+  
+  it('should return a doc with only title and primaryBrand fields when getTitleAndBrand is called', async (done) => {
+      const titleAndBrandDoc = await db.getTitleAndBrand(200);
+      const keys = Object.getOwnPropertyNames(titleAndBrandDoc[0]);
+      const length = keys.length;
+
+      expect(titleAndBrandDoc[0]._id).toBeFalsy();
+      expect(length).toBe(2);
+      expect(titleAndBrandDoc[0].title).toBeDefined();
+      expect(titleAndBrandDoc[0].primaryBrand).toBeDefined();
+      done();
+  })
+
+
+  it('should return a doc with all of the descriptionObject fields when getDescriptionObject is called', async (done) => {
+    const descriptionObjectDoc = await db.getDescriptionObject(200);
+    const keys = Object.getOwnPropertyNames(descriptionObjectDoc[0]);
+    const length = keys.length;
+
+    expect(length).toBe(12);
+    expect(descriptionObjectDoc[0]._id).toBeFalsy();
+    expect(descriptionObjectDoc[0].title).toBe(fakeData.title);
+    expect(descriptionObjectDoc[0].primaryColor).toBe(fakeData.primaryColor);
+    done();
+  })
+
 })
+
 

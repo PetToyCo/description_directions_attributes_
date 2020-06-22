@@ -6,6 +6,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "test": "jest --forceExit --detectOpenHandles",
+    "seed": "node database-mongodb/seed.js",
     "start": "nodemon server.js"
   },
   "standard": {

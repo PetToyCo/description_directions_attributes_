@@ -12,7 +12,14 @@ This service builds a tabbed module that presents more detailed item information
   3. Development
 
 ## Usage
-tbd
+1. From within the root directory:
+npm start
+
+2. Navigate to localhost:3002 in the browser
+
+3. To retrieve data for a specific item (100-199), navigate to:
+localhost:3002/descriptionObject/### or localhost:3002/itemInformation/###
+
 
 ## Requirements
 tbd

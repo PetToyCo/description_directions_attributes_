@@ -12,10 +12,11 @@ This service builds a tabbed module that presents more detailed item information
   3. Development
 
 ## Usage
-N.B. If the database has not yet been seeded:
-     From within the root directory:
-     npm run seed
+If the database has not yet been seeded:
+  From within the root directory:
+  npm run seed
 
+Once the database has been seeded:
 1. From within the root directory:
 npm start
 

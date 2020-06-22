@@ -81,6 +81,16 @@ describe('Description Model and Associated Helper Functions Test', () => {
     done();
   })
 
+ 
+  it('should find hardcoded entries from seed.js in database', async (done) => {
+    const item100 = await db.Description.find({itemId: 100});
+    const item109 = await db.Description.find({itemId: 109});
+
+    expect(item100[0].title).toBe('CatToys Spring-Loaded Mouse');
+    expect(item109[0].title).toBe('BestFriends Rubber Bone with Chicken Flavor');
+    done();
+  })
+
   
   it('should return a doc with only title and primaryBrand fields when getTitleAndBrand is called', async (done) => {
       const titleAndBrandDoc = await db.getTitleAndBrand(200);

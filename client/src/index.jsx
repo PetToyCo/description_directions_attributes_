@@ -6,16 +6,25 @@ import Additional from './Components/Additional.jsx';
 class DescriptionService extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      current: 'description'
+    }
   }
 
   render() {
     return (
       <div>
-        <h4>React</h4>
-        <Description />
-        <Directions />
-        <Attributes />
-        <Additional />
+        <div id='buttons'>
+          <button>Description</button>
+          <button>Directions</button>
+          <button>Attributes/Specifications</button>
+          <button>Additional Details</button>
+        </div>
+        {this.state.current === 'description' && <Description />}
+        {this.state.current === 'directions' && <Directions />}
+        {this.state.current === 'attributes' && <Attributes />}
+        {this.state.current === 'additional' &&<Additional />}
       </div>
     )
   }

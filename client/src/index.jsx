@@ -16,8 +16,8 @@ class DescriptionService extends React.Component {
     this.changeModule = this.changeModule.bind(this);
   }
 
+  //hardcoded to item 100
   componentDidMount() {
-    //call endpoint for desc obj
     axios.get('/descriptionObject/100')
       .then(data => {
         console.log('success getting data in componentDidMount: ', data);
@@ -32,7 +32,6 @@ class DescriptionService extends React.Component {
   }
 
   changeModule(e) {
-    console.log('inside changeModule: ', e.target);
     var newState = e.target.id;
     this.setState({
       current: newState
@@ -50,9 +49,9 @@ class DescriptionService extends React.Component {
           <button id='additional' onClick={this.changeModule}>Additional Details</button>
         </div>
         {this.state.current === 'description' && <Description description={this.state.data.description}/>}
-        {this.state.current === 'directions' && <Directions directions={this.state.data.directions}/>}
+        {this.state.current === 'directions' && <Directions directions={this.state.data.directions.directions}/>}
         {this.state.current === 'attributes' && <Attributes attributes={this.state.data.attributes}/>}
-        {this.state.current === 'additional' && <Additional additional={this.state.data.additional}/>}
+        {this.state.current === 'additional' && <Additional additional={this.state.data.details.additionalDetails}/>}
       </div>
     )
   }

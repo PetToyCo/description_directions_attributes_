@@ -1,6 +1,6 @@
 var Additional = (props) => (
   <div>
-    <h2>Additional</h2>
+    <p>{props.additional}</p>
   </div>
 )
 

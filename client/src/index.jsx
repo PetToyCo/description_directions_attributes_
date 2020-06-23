@@ -12,6 +12,8 @@ class DescriptionService extends React.Component {
       current: 'description',
       data: {}
     }
+
+    this.changeModule = this.changeModule.bind(this);
   }
 
   componentDidMount() {
@@ -29,15 +31,23 @@ class DescriptionService extends React.Component {
       });
   }
 
+  changeModule(e) {
+    console.log('inside changeModule: ', e.target);
+    var newState = e.target.id;
+    this.setState({
+      current: newState
+    });
+  }
+
 
   render() {
     return (
       <div>
         <div id='buttons'>
-          <button>Description</button>
-          <button>Directions</button>
-          <button>Attributes/Specifications</button>
-          <button>Additional Details</button>
+          <button id='description' onClick={this.changeModule}>Description</button>
+          <button id='directions' onClick={this.changeModule}>Directions</button>
+          <button id='attributes' onClick={this.changeModule}>Attributes/Specifications</button>
+          <button id='additional' onClick={this.changeModule}>Additional Details</button>
         </div>
         {this.state.current === 'description' && <Description description={this.state.data.description}/>}
         {this.state.current === 'directions' && <Directions directions={this.state.data.directions}/>}

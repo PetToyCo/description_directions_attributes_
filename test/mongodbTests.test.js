@@ -83,12 +83,14 @@ describe('Description Model and Associated Helper Functions Test', () => {
   })
 
  
-  it('should find hardcoded entries from seed.js in database', async (done) => {
+  it('should find hardcoded and auto-generated entries from seed.js in database', async (done) => {
     const item100 = await db.Description.find({itemId: 100});
     const item109 = await db.Description.find({itemId: 109});
+    const item129 = await db.Description.find({itemId: 109});
 
     expect(item100[0].title).toBe('CatToys Spring-Loaded Mouse');
     expect(item109[0].title).toBe('BestFriends Rubber Bone with Chicken Flavor');
+    expect(item129[0].title).toBeDefined();
     done();
   })
 

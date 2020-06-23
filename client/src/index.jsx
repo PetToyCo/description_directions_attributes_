@@ -9,7 +9,7 @@ class DescriptionService extends React.Component {
     super(props);
 
     this.state = {
-      current: 'description',
+      current: '',
       data: {}
     }
 
@@ -22,6 +22,7 @@ class DescriptionService extends React.Component {
       .then(data => {
         console.log('success getting data in componentDidMount: ', data);
         this.setState({
+          current: 'description',
           data: data.data
         });
         console.log('state: ', this.state);

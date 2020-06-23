@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const db = require('../database-mongodb/index');
+const app = require('../server.js');
+const supertest = require('supertest');
+const request = supertest(app);
 
 const fakeData = {
   itemId: '200',
@@ -34,7 +37,6 @@ const badFakeData = {
 describe('Description Model and Associated Helper Functions Test', () => {
 
   beforeAll(async () => {
-    console.log('beforeAll');
     await mongoose.connect('mongodb://localhost/description_directions_attributes', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
       if (err) {
         console.error(err);
@@ -44,7 +46,6 @@ describe('Description Model and Associated Helper Functions Test', () => {
   });
 
   afterAll(async (done) => {
-    console.log('afterAll');
     await mongoose.connection.close((err) => {
       if (err) {
         console.log('error closing mongoose connection: ', err);
@@ -116,7 +117,45 @@ describe('Description Model and Associated Helper Functions Test', () => {
     expect(descriptionObjectDoc[0].primaryColor).toBe(fakeData.primaryColor);
     done();
   })
+});
 
-})
+describe('Server Endpoints Test', () => {
+
+  beforeAll(async () => {
+    await mongoose.connect('mongodb://localhost/description_directions_attributes', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+    });
+  });
+
+  afterAll(async (done) => {
+    await mongoose.connection.close((err) => {
+      if (err) {
+        console.log('error closing mongoose connection: ', err);
+      } else {
+        done();
+      }
+    });
+  })
 
 
+  it('gets the /itemInformation endpoint', async (done) => {
+    const response = await request.get('/itemInformation/102');
+
+    expect(response.status).toBe(200);
+    expect(response.body.title).toBe('CatToys Springy Bird Toy');
+    done();
+  })
+
+
+  it('gets the /descriptionObject endpoint', async (done) => {
+    const response = await request.get('/descriptionObject/102');
+
+    expect(response.status).toBe(200);
+    expect(response.body.title).toBe('CatToys Springy Bird Toy');
+    expect(response.body.material).toBe('Plush and Wire');
+    done();
+  })
+});

@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const db = require('../database-mongodb/index');
+const app = require('../server.js');
+const supertest = require('supertest');
+const request = supertest(app);
 
 const fakeData = {
   itemId: '200',
@@ -31,10 +34,9 @@ const badFakeData = {
 };
 
 
-describe('Description Model Test', () => {
+describe('Description Model and Associated Helper Functions Test', () => {
 
   beforeAll(async () => {
-    console.log('beforeAll');
     await mongoose.connect('mongodb://localhost/description_directions_attributes', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
       if (err) {
         console.error(err);
@@ -44,7 +46,6 @@ describe('Description Model Test', () => {
   });
 
   afterAll(async (done) => {
-    console.log('afterAll');
     await mongoose.connection.close((err) => {
       if (err) {
         console.log('error closing mongoose connection: ', err);
@@ -81,5 +82,82 @@ describe('Description Model Test', () => {
     done();
   })
 
-})
+ 
+  it('should find hardcoded and auto-generated entries from seed.js in database', async (done) => {
+    const item100 = await db.Description.find({itemId: 100});
+    const item109 = await db.Description.find({itemId: 109});
+    const item129 = await db.Description.find({itemId: 109});
 
+    expect(item100[0].title).toBe('CatToys Spring-Loaded Mouse');
+    expect(item109[0].title).toBe('BestFriends Rubber Bone with Chicken Flavor');
+    expect(item129[0].title).toBeDefined();
+    done();
+  })
+
+  
+  it('should return a doc with only title and primaryBrand fields when getTitleAndBrand is called', async (done) => {
+      const titleAndBrandDoc = await db.getTitleAndBrand(200);
+      const keys = Object.getOwnPropertyNames(titleAndBrandDoc[0]);
+      const length = keys.length;
+
+      expect(titleAndBrandDoc[0]._id).toBeFalsy();
+      expect(length).toBe(2);
+      expect(titleAndBrandDoc[0].title).toBeDefined();
+      expect(titleAndBrandDoc[0].primaryBrand).toBeDefined();
+      done();
+  })
+
+
+  it('should return a doc with all of the descriptionObject fields when getDescriptionObject is called', async (done) => {
+    const descriptionObjectDoc = await db.getDescriptionObject(200);
+    const keys = Object.getOwnPropertyNames(descriptionObjectDoc[0]);
+    const length = keys.length;
+
+    expect(length).toBe(12);
+    expect(descriptionObjectDoc[0]._id).toBeFalsy();
+    expect(descriptionObjectDoc[0].title).toBe(fakeData.title);
+    expect(descriptionObjectDoc[0].primaryColor).toBe(fakeData.primaryColor);
+    done();
+  })
+});
+
+describe('Server Endpoints Test', () => {
+
+  beforeAll(async () => {
+    await mongoose.connect('mongodb://localhost/description_directions_attributes', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
+      if (err) {
+        console.error(err);
+        process.exit(1);
+      }
+    });
+  });
+
+  afterAll(async (done) => {
+    await mongoose.connection.close((err) => {
+      if (err) {
+        console.log('error closing mongoose connection: ', err);
+      } else {
+        done();
+      }
+    });
+  })
+
+
+  it('gets the /itemInformation endpoint', async (done) => {
+    const response = await request.get('/itemInformation/102');
+
+    expect(response.status).toBe(200);
+    expect(response.body.title).toBe('CatToys Springy Bird Toy');
+    done();
+  })
+
+
+  it('gets the /descriptionObject endpoint', async (done) => {
+    const response = await request.get('/descriptionObject/102');
+
+    expect(response.status).toBe(200);
+    expect(response.body.title).toBe('CatToys Springy Bird Toy');
+    expect(response.body.material).toBe('Plush and Wire');
+    done();
+  })
+});

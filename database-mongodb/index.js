@@ -31,5 +31,15 @@ const descriptionSchema = new mongoose.Schema({
 
 const Description = mongoose.model('Description', descriptionSchema);
 
+const getTitleAndBrand = (itemId) => {
+  return Description.find({itemId: itemId}).select('title primaryBrand -_id').lean().exec();
+}
+
+const getDescriptionObject = (itemId) => {
+  return Description.find({itemId: itemId}).select('-_id -__v').lean().exec();
+}
+
 module.exports.Description = Description;
 module.exports.db = db;
+module.exports.getTitleAndBrand = getTitleAndBrand;
+module.exports.getDescriptionObject = getDescriptionObject;

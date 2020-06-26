@@ -5,13 +5,21 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
-    "test": "jest --forceExit --detectOpenHandles",
+    "test": "jest './test/reactTests.test.js' --forceExit --detectOpenHandles",
     "seed": "node database-mongodb/seed.js",
     "start": "nodemon start.js"
   },
   "standard": {
     "env": [
       "jest"
+    ]
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+      "./src/setupTests.js"
     ]
   },
   "repository": {
@@ -29,10 +37,16 @@
     "@babel/preset-env": "^7.10.3",
     "@babel/preset-react": "^7.10.1",
     "@shelf/jest-mongodb": "^1.1.5",
+    "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.2",
+    "enzyme-to-json": "^3.5.0",
     "eslint": "^7.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "jest": "^26.0.1",
+    "jest": "^26.1.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "supertest": "^4.0.2",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12"

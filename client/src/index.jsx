@@ -1,10 +1,14 @@
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+
+
 import Description from './Components/Description.jsx';
 import Directions from './Components/Directions.jsx';
 import Attributes from './Components/Attributes.jsx';
 import Additional from './Components/Additional.jsx';
 import axios from 'axios';
 
-class DescriptionService extends React.Component {
+export default class DescriptionService extends React.Component {
   constructor(props) {
     super(props);
 

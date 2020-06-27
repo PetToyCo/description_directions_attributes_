@@ -9,7 +9,7 @@ var Description = (props) => (
         <span className='key'>SKU</span>
         <span className='val'>{props.description.SKU}</span>
       </li>
-      <li className='tableLine'>
+      <li className='tableLine gray'>
         <span className='key'>Primary Brand</span>
         <span className='val'>{props.description.primaryBrand}</span>
       </li>

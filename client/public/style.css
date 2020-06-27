@@ -66,6 +66,7 @@ ul.table.li:first-child {
 }
 
 .table2 {
+  display: block;
   text-align: left;
   margin: 0;
     padding: 0;
@@ -73,4 +74,8 @@ ul.table.li:first-child {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
+}
+
+.gray {
+  background-color: white;
 }

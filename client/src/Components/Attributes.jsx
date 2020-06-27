@@ -5,7 +5,7 @@ var Attributes = (props) => (
       <span className='key'>Additional Features</span>
       <span className='val'></span>
       </li>
-      <li className='tableLine'>
+      <li className='tableLine gray'>
       <span className='key'>Primary Color</span>
       <span className='val'>{props.attributes.primaryColor}</span>
       </li>
@@ -19,7 +19,7 @@ var Attributes = (props) => (
       <span className='key'>Item Dimensions</span>
       <span className='val'></span>
       </li>
-      <li className='tableLine'>
+      <li className='tableLine gray'>
       <span className='key'>Length</span>
       <span className='val'>{props.attributes.length}</span>
       </li>

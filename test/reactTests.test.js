@@ -11,27 +11,66 @@ import Adapter from 'enzyme-adapter-react-16';
 //import Promise from 'bluebird';
 //import renderer from 'react-test-renderer';
 import DescriptionService from '../client/src/index.jsx';
+import Description from '../client/src/Components/Description.jsx';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('DescriptionService', () => {
 
-  // it('should mount in a full DOM', () => {
-  //   expect(mount(<DescriptionService />).find('#indexComponent').length).toBe(1);
-  // });
+  var wrapper;
 
-  it('should find the #buttons div when mounted', () => {
-    expect(mount(<DescriptionService />).find('#buttons').length).toBe(1);
+  afterEach(() => {
+    wrapper.unmount();
   });
+
+  var fakeData = {
+    title: 'Pet Toy',
+    description: 'item description',
+    SKU: '8902345',
+    primaryBrand: 'brand',
+    daysToShip: 'ships in two days'
+   }
+
+
+  it('should find the #indexComponent div when DescriptionService is mounted', () => {
+    wrapper = mount(<DescriptionService />);
+    expect((wrapper).find('#indexComponent').length).toBe(1);
+  });
+
+  it('should find the #buttons div when DescriptionService is mounted', () => {
+    wrapper = mount(<DescriptionService />);
+    expect((wrapper).find('#buttons').length).toBe(1);
+  });
+
+  it('should not find the #directionsTab div when DescriptionService is mounted', () => {
+    wrapper = mount(<DescriptionService />);
+    expect((wrapper).find('#directionsTab').length).toBe(0);
+  });
+
+  it('should find the #descriptionTab div when Description mounted', () => {
+    wrapper = mount(<Description description={fakeData} />);
+    expect((wrapper).find('#descriptionTab').length).toBe(1);
+  });
+
+});
+
+describe('blah', () => {
+
 
   // it('should find four buttons inside #button div', () => {
   //   var DOM = shallow(<DescriptionService />);
   //   var buttons = DOM.find('#buttons button');
 
   //   expect(buttons.length()).toBe(4);
-  // })
+  // });
 
-});
+  // it('calls componentDidMount', () => {
+  //   jest.spyOn(DescriptionService.prototype, 'componentDidMount');
+  //   var wrapper = shallow(<DescriptionService />);
+
+  //   expect(DescriptionService.prototype.componentDidMount.mock.calls.length).toBe(1);
+  // });
+})
 
 
 

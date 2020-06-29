@@ -1,5 +1,7 @@
+import React from 'react';
+
 var Description = (props) => (
-  <div>
+  <div id='descriptionTab'>
     <p>{props.description.title}</p>
     <ul>
       <li>{props.description.description}</li>

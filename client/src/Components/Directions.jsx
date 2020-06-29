@@ -1,5 +1,5 @@
 var Directions = (props) => (
-  <div>
+  <div id='directionsTab'>
     <p>{props.directions}</p>
   </div>
 )

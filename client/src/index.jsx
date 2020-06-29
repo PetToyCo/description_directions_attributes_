@@ -1,6 +1,4 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-
+import React from 'react';
 
 import Description from './Components/Description.jsx';
 import Directions from './Components/Directions.jsx';
@@ -46,7 +44,7 @@ export default class DescriptionService extends React.Component {
 
   render() {
     return (
-      <div>
+      <div id='indexComponent'>
         <div id='buttons'>
           <button id='description' onClick={this.changeModule}>Description</button>
           <button id='directions' onClick={this.changeModule}>Directions</button>
@@ -62,4 +60,5 @@ export default class DescriptionService extends React.Component {
   }
 }
 
-ReactDOM.render(<DescriptionService />, document.getElementById('description'));
+
+//ReactDOM.render(<DescriptionService />, document.getElementById('description'));

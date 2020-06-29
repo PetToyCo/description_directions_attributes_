@@ -6,6 +6,9 @@ import React from 'react';
 import Enzyme from 'enzyme';
 import { shallow, mount, render } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+//import sinon from 'sinon';
+//import nock from 'nock';
+//import waitUntil from 'async-wait-until';
 //import "babel-polyfill"
 //import fetch from 'fetch';
 //import Promise from 'bluebird';
@@ -19,9 +22,9 @@ describe('DescriptionService', () => {
 
   var wrapper;
 
-  afterEach(() => {
-    wrapper.unmount();
-  });
+  // afterEach(() => {
+  //   wrapper.unmount();
+  // });
 
   var fakeData = {
     title: 'Pet Toy',
@@ -29,33 +32,107 @@ describe('DescriptionService', () => {
     SKU: '8902345',
     primaryBrand: 'brand',
     daysToShip: 'ships in two days'
-   }
+  }
 
 
   it('should find the #indexComponent div when DescriptionService is mounted', () => {
-    wrapper = mount(<DescriptionService />);
+    wrapper = shallow(<DescriptionService />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#indexComponent').length).toBe(1);
   });
 
   it('should find the #buttons div when DescriptionService is mounted', () => {
-    wrapper = mount(<DescriptionService />);
+    wrapper = shallow(<DescriptionService />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#buttons').length).toBe(1);
   });
 
   it('should not find the #directionsTab div when DescriptionService is mounted', () => {
-    wrapper = mount(<DescriptionService />);
+    wrapper = shallow(<DescriptionService />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#directionsTab').length).toBe(0);
   });
 
-  it('should find the #descriptionTab div when Description mounted', () => {
-    wrapper = mount(<Description description={fakeData} />);
+  it('should find the #descriptionTab div when Description is mounted', () => {
+    wrapper = shallow(<Description description={fakeData} />,  { disableLifecycleMethods: true });
+    console.log(wrapper.find('span').length);
     expect((wrapper).find('#descriptionTab').length).toBe(1);
+    expect((wrapper).find('span').length).toBe(6);
   });
+
+  //add other tests to check that data is filtering thru
 
 });
 
-describe('blah', () => {
+// describe('DescriptionService Components', () => {
 
+//   it('updates state after axios call', () => {
+//     const server = sinon.fakeServer.create();
+//     server.respondWith('GET', '/descriptionObject/100', [{
+//       description: {
+//         title: 'Cat Toy',
+//         description: 'item description',
+//         SKU: '1234567',
+//         primaryBrand: 'brandName',
+//         daysToShip: 'two days'
+//       },
+//       directions: {
+//         directions: 'a string containing directions and warnings about the item'
+//       },
+//       attributes: {
+//         primaryColor: 'purple',
+//         material: 'plush',
+//         length: '4 IN',
+//         width: '5 IN'
+//       },
+//       details: {
+//         additionalDetails: 'item’s advertising copy'
+//       }
+//     }]
+//     );
+
+//     var wrapper = mount(<DescriptionService />);
+//     server.respond();
+//     server.restore();
+//     expect(wrapper.update().state().current).to.be('description');
+//   })
+
+
+
+
+
+  // beforeAll(() => {
+  //   nock()
+  //     .get('/descriptionObject/100')
+  //     .reply(200, {
+  //       description: {
+  //         title: 'Cat Toy',
+  //         description: 'item description',
+  //         SKU: '1234567',
+  //         primaryBrand: 'brandName',
+  //         daysToShip: 'two days'
+  //       },
+  //       directions: {
+  //         directions: 'a string containing directions and warnings about the item'
+  //       },
+  //       attributes: {
+  //         primaryColor: 'purple',
+  //         material: 'plush',
+  //         length: '4 IN',
+  //         width: '5 IN'
+  //       },
+  //       details: {
+  //         additionalDetails: 'item’s advertising copy'
+  //       }
+  //     });
+  // });
+
+  // it('should pass data down to components after component mounts', async (done) => {
+  //   var component = shallow(<DescriptionService />);
+
+  //   await waitUntil(() => component.state('current') !== '');
+
+  //   expect(component.state('current')).toEqual('description');
+
+  //   done();
+  // })
 
   // it('should find four buttons inside #button div', () => {
   //   var DOM = shallow(<DescriptionService />);
@@ -70,7 +147,7 @@ describe('blah', () => {
 
   //   expect(DescriptionService.prototype.componentDidMount.mock.calls.length).toBe(1);
   // });
-})
+// })
 
 
 

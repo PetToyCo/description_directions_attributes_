@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
+    "test": "jest --forceExit --detectOpenHandles",
     "testFront": "jest './test/reactTests.test.js' --forceExit --detectOpenHandles",
     "testBack": "jest './test/mongodbTests.test.js' --forceExit --detectOpenHandles",
     "seed": "node database-mongodb/seed.js",

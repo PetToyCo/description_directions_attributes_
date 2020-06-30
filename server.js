@@ -9,6 +9,12 @@ app.use(express.static(path.join(__dirname, 'client/public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+//crossorigin permission
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+  next();
+})
+
 //get title and brand name for an item
 app.get('/itemInformation/:itemId', (req, res) => {
   const itemId = req.params.itemId;

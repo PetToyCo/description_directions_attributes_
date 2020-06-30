@@ -4,13 +4,16 @@
 
 import React from 'react';
 import Enzyme from 'enzyme';
-import { shallow, mount, render } from 'enzyme';
+const { shallow, mount, render } = Enzyme;
 import Adapter from 'enzyme-adapter-react-16';
 //import sinon from 'sinon';
 //import nock from 'nock';
 //import "babel-polyfill"
 import DescriptionService from '../client/src/index.jsx';
 import Description from '../client/src/Components/Description.jsx';
+import Directions from '../client/src/Components/Directions.jsx';
+import Attributes from '../client/src/Components/Attributes.jsx';
+import Additional from '../client/src/Components/Additional.jsx';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -18,12 +21,27 @@ describe('DescriptionService', () => {
 
   var wrapper;
 
-  var fakeData = {
+  var fakeData1 = {
     title: 'Pet Toy',
     description: 'item description',
     SKU: '8902345',
     primaryBrand: 'brand',
     daysToShip: 'ships in two days'
+  }
+
+  var fakeData2 = {
+    directions: 'a string containing directions and warnings about the item'
+  }
+
+  var fakeData3 = {
+    primaryColor: 'pink',
+    material: 'plush',
+    length: '4 IN',
+    width: '5 IN'
+  }
+
+  var fakeData4 = {
+    additionalDetails: 'item’s advertising copy'
   }
 
 
@@ -43,8 +61,24 @@ describe('DescriptionService', () => {
   });
 
   it('should find the #descriptionTab div when Description is mounted', () => {
-    wrapper = shallow(<Description description={fakeData} />,  { disableLifecycleMethods: true });
+    wrapper = shallow(<Description description={fakeData1} />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#descriptionTab').length).toBe(1);
     expect((wrapper).find('span').length).toBe(6);
+  });
+
+  it('should find the #descriptionTab div when Description is mounted', () => {
+    wrapper = shallow(<Directions directions={fakeData2} />,  { disableLifecycleMethods: true });
+    expect((wrapper).find('#directionsTab').length).toBe(1);
+  });
+
+  it('should find the #descriptionTab div when Description is mounted', () => {
+    wrapper = shallow(<Attributes attributes={fakeData3} />,  { disableLifecycleMethods: true });
+    expect((wrapper).find('#attributesTab').length).toBe(1);
+    expect((wrapper).find('span').length).toBe(12);
+  });
+
+  it('should find the #descriptionTab div when Description is mounted', () => {
+    wrapper = shallow(<Additional additional={fakeData4} />,  { disableLifecycleMethods: true });
+    expect((wrapper).find('#additionalTab').length).toBe(1);
   });
 });

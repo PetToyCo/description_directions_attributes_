@@ -1,5 +1,7 @@
+import React from 'react';
+
 var Attributes = (props) => (
-  <div>
+  <div id='attributesTab'>
     <ul className='table2'>
       <li className='tableLine'>
       <span className='key'>Additional Features</span>

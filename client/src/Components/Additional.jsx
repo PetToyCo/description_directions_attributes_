@@ -1,5 +1,7 @@
+import React from 'react';
+
 var Additional = (props) => (
-  <div>
+  <div id='additionalTab'>
     <p>{props.additional}</p>
   </div>
 )

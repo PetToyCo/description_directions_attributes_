@@ -30,7 +30,8 @@ npm run react-dev
 4. From within the root directory:
 npm start
 
-5. Go to the README for elizabeth_ProxyServer and follow the instructions there.
+5. Go to the README for elizabeth_ProxyServer and follow the instructions there. Confirm that the proxy's index.html has a div tag with id='description' so that this component has a place to mount, and that the proxy's index.html has CDN script tags for "https://unpkg.com/react@16/umd/react.production.min.js" and "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+
 
 
 If you need to use this service for development purposes only:

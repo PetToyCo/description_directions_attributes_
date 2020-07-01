@@ -20,6 +20,7 @@ class DescriptionService extends React.Component {
   }
 
   //Development componentDidMount. Hardcoded to item 100
+
   // componentDidMount() {
   //   axios.get('/descriptionObject/100')
   //     .then(data => {
@@ -34,6 +35,9 @@ class DescriptionService extends React.Component {
   //       console.log('error getting descObj in componentDidMount: ', err);
   //     });
   // }
+
+  
+  //Proxy componentDidMount
 
   componentDidMount() {
     const item = window.location.href.split('=')[1];

@@ -23,7 +23,7 @@ app.get('/itemInformation/:itemId', (req, res) => {
 
   db.getTitleAndBrand(itemId)
     .then(data => {
-      console.log('success getting title and brand: ', data);
+      console.log('success getting title and brand');
       res.send(data[0]);
     })
     .catch(err => {
@@ -39,7 +39,7 @@ app.get('/descriptionObject/:itemId', (req, res) => {
 
   db.getDescriptionObject(itemId)
   .then(data => {
-    console.log('success getting descriptionObj: ', data);
+    console.log('success getting descriptionObj');
 
     var formattedData = {
       description: {

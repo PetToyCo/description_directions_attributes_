@@ -18,20 +18,40 @@ class DescriptionService extends React.Component {
     this.changeModule = this.changeModule.bind(this);
   }
 
-  //hardcoded to item 100
+  //Development componentDidMount. Hardcoded to item 100
+  // componentDidMount() {
+  //   axios.get('/descriptionObject/100')
+  //     .then(data => {
+  //       console.log('success getting data in componentDidMount: ', data);
+  //       this.setState({
+  //         current: 'description',
+  //         data: data.data
+  //       });
+  //       console.log('state: ', this.state);
+  //     })
+  //     .catch(err => {
+  //       console.log('error getting descObj in componentDidMount: ', err);
+  //     });
+  // }
+
   componentDidMount() {
-    axios.get('/descriptionObject/100')
-      .then(data => {
-        console.log('success getting data in componentDidMount: ', data);
-        this.setState({
-          current: 'description',
-          data: data.data
-        });
-        console.log('state: ', this.state);
-      })
-      .catch(err => {
-        console.log('error getting descObj in componentDidMount: ', err);
-      });
+    const item = window.location;
+    console.log('item: ', item);
+
+
+
+    // axios.get(`http://127.0.0.1:3002/descriptionObject/${}`)
+    //   .then(data => {
+    //     console.log('success getting data in componentDidMount: ', data);
+    //     this.setState({
+    //       current: 'description',
+    //       data: data.data
+    //     });
+    //     console.log('state: ', this.state);
+    //   })
+    //   .catch(err => {
+    //     console.log('error getting descObj in componentDidMount: ', err);
+    //   });
   }
 
   changeModule(e) {

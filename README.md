@@ -5,13 +5,16 @@ This service builds a tabbed module that presents more detailed item information
 ## Related Projects
 - https://github.com/PetToyCo/reviews
 - https://github.com/PetToyCo/photo-gallery
+- https://github.com/PetToyCo/elizabeth_ProxyServer
 
 ## Table of Contents
   1. Usage
-  2. Requirements
-  3. Development
+  2. Endpoints
+  3. Requirements
+  4. Development
 
 ## Usage
+This service is meant to be used with a proxy server. If that is your intended use:
 1. From the root directory:
 npm install
 
@@ -19,13 +22,39 @@ npm install
 From within the root directory:
 npm run seed
 
-Once the database has been seeded:
-3. From within the root directory:
+3. In client/src/index.jsx:
+Make sure the proxy componentDidMount is uncommented, and the development componentDidMount is commented out. If any changes are made:
+From within the root directory:
+npm run react-dev
+
+4. From within the root directory:
 npm start
 
-4. Navigate to localhost:3002 in the browser
+5. Go to the README for elizabeth_ProxyServer and follow the instructions there. Confirm that the proxy's index.html has a div tag with id='description' so that this component has a place to mount, and that the proxy's index.html has CDN script tags for "https://unpkg.com/react@16/umd/react.production.min.js" and "https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
 
-5. This service has two endpoints. One to retrieve an item's descriptionObject, and one to retrieve its title and primaryBrand. To retrieve data for a specific item (100-199), navigate to:
+
+
+If you need to use this service for development purposes only:
+1. From the root directory:
+npm install
+
+2. If the database has not yet been seeded:
+From within the root directory:
+npm run seed
+
+3. In client/src/index.jsx:
+Make sure the proxy componentDidMount is commented out, and the development componentDidMount is uncommented. If any changes are made:
+From within the root directory:
+npm run react-dev
+
+4. From within the root directory:
+npm start
+
+5. Navigate to localhost:3002 in the browser
+
+
+## Endpoints
+This service has two endpoints. One to retrieve an item's descriptionObject, and one to retrieve its title and primaryBrand. To retrieve data for a specific item (100-199), navigate to:
 
 localhost:3002/descriptionObject/### 
 

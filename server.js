@@ -1,19 +1,17 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./database-mongodb/index.js');
 
 const app = express();
-
-app.use(express.static(path.join(__dirname, 'client/public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 //crossorigin permission
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
   next();
 })
+
+app.use(express.static(path.join(__dirname, 'client/public')));
+
 
 //get title and brand name for an item
 app.get('/itemInformation/:itemId', (req, res) => {
@@ -22,7 +20,7 @@ app.get('/itemInformation/:itemId', (req, res) => {
 
   db.getTitleAndBrand(itemId)
     .then(data => {
-      console.log('success getting title and brand: ', data);
+      console.log('success getting title and brand');
       res.send(data[0]);
     })
     .catch(err => {
@@ -38,7 +36,7 @@ app.get('/descriptionObject/:itemId', (req, res) => {
 
   db.getDescriptionObject(itemId)
   .then(data => {
-    console.log('success getting descriptionObj: ', data);
+    console.log('success getting descriptionObj');
 
     var formattedData = {
       description: {

@@ -5,6 +5,7 @@ import Directions from './Components/Directions.jsx';
 import Attributes from './Components/Attributes.jsx';
 import Additional from './Components/Additional.jsx';
 import axios from 'axios';
+import { buttonStyle } from './style.js';
 
 class DescriptionService extends React.Component {
   constructor(props) {
@@ -64,10 +65,10 @@ class DescriptionService extends React.Component {
     return (
       <div id='indexComponent'>
         <div id='buttons'>
-          <button id='description' onClick={this.changeModule}>Description</button>
-          <button id='directions' onClick={this.changeModule}>Directions</button>
-          <button id='attributes' onClick={this.changeModule}>Attributes/Specifications</button>
-          <button id='additional' onClick={this.changeModule}>Additional Details</button>
+          <button id='description' style={buttonStyle} onClick={this.changeModule}>Description</button>
+          <button id='directions' style={buttonStyle} onClick={this.changeModule}>Directions</button>
+          <button id='attributes' style={buttonStyle} onClick={this.changeModule}>Attributes/Specifications</button>
+          <button id='additional' style={buttonStyle} onClick={this.changeModule}>Additional Details</button>
         </div>
         {this.state.current === 'description' && <Description description={this.state.data.description}/>}
         {this.state.current === 'directions' && <Directions directions={this.state.data.directions.directions}/>}

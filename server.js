@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 const db = require('./database-mongodb/index.js');
 
@@ -12,8 +11,6 @@ app.use((req, res, next) => {
 })
 
 app.use(express.static(path.join(__dirname, 'client/public')));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
 
 
 //get title and brand name for an item

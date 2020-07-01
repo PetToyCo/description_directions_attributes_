@@ -48,7 +48,7 @@ npm start
 4. Navigate to localhost:3002 in the browser
 
 
-##Endpoints
+## Endpoints
 This service has two endpoints. One to retrieve an item's descriptionObject, and one to retrieve its title and primaryBrand. To retrieve data for a specific item (100-199), navigate to:
 
 localhost:3002/descriptionObject/### 

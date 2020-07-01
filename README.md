@@ -41,11 +41,15 @@ npm install
 From within the root directory:
 npm run seed
 
-Once the database has been seeded:
-3. From within the root directory:
+3. In client/src/index.jsx:
+Make sure the proxy componentDidMount is commented out, and the development componentDidMount is uncommented. If any changes are made:
+From within the root directory:
+npm run react-dev
+
+4. From within the root directory:
 npm start
 
-4. Navigate to localhost:3002 in the browser
+5. Navigate to localhost:3002 in the browser
 
 
 ## Endpoints

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/description_directions_attributes');
 
-db = mongoose.connection;
+var db = mongoose.connection;
 
 db.on('error', () => {
   console.log('error connecting to db');

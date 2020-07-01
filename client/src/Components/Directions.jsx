@@ -1,6 +1,8 @@
+import React from 'react';
+
 var Directions = (props) => (
-  <div>
-    <h2>Directons</h2>
+  <div id='directionsTab'>
+    <p>{props.directions}</p>
   </div>
 )
 

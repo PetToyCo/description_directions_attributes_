@@ -3,6 +3,7 @@ const db = require('../database-mongodb/index');
 const app = require('../server.js');
 const supertest = require('supertest');
 const request = supertest(app);
+import "babel-polyfill";
 
 const fakeData = {
   itemId: '200',
@@ -156,8 +157,8 @@ describe('Server Endpoints Test', () => {
     const response = await request.get('/descriptionObject/102');
 
     expect(response.status).toBe(200);
-    expect(response.body.title).toBe('CatToys Springy Bird Toy');
-    expect(response.body.material).toBe('Plush and Wire');
+    expect(response.body.description.title).toBe('CatToys Springy Bird Toy');
+    expect(response.body.attributes.material).toBe('Plush and Wire');
     done();
   })
 });

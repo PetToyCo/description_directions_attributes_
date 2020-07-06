@@ -1,9 +1,14 @@
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
+
 module.exports = {
-  entry: __dirname + '/client/src/render.jsx',
+  entry: './server.js',
+  target: 'node',
+  externals: [nodeExternals()],
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.(jsx|js)$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -15,7 +20,7 @@ module.exports = {
     ]
   },
   output: {
-    filename: 'bundle.js',
-    path: __dirname + '/client/public'
+    filename: 'index.js'
+    // path: __dirname + '/client/public'
   }
 };

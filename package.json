@@ -9,7 +9,7 @@
     "testFront": "jest './test/reactTests.test.js' --coverage --forceExit --detectOpenHandles",
     "testBack": "jest './test/mongodbTests.test.js' --forceExit --detectOpenHandles",
     "seed": "node database-mongodb/seed.js",
-    "start": "nodemon start.js "
+    "start": "nodemon dist/index.js "
   },
   "standard": {
     "env": [
@@ -36,8 +36,8 @@
   "homepage": "https://github.com/PetToyCo/description_directions_attributes_#readme",
   "devDependencies": {
     "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
-    "@babel/preset-react": "^7.10.1",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
     "@shelf/jest-mongodb": "^1.1.5",
     "babel-jest": "^26.1.0",
     "babel-loader": "^8.1.0",
@@ -54,6 +54,7 @@
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {
+    "@babel/register": "^7.10.4",
     "async-wait-until": "^1.2.4",
     "axios": "^0.19.2",
     "babel-polyfill": "^6.26.0",
@@ -61,10 +62,13 @@
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "fetch": "^1.1.0",
+    "fs": "0.0.1-security",
+    "ignore-styles": "^5.0.1",
     "mongoose": "^5.9.19",
     "nock": "^13.0.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
-    "sinon": "^9.0.2"
+    "sinon": "^9.0.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

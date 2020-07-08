@@ -5,7 +5,7 @@ import Directions from './Components/Directions.jsx';
 import Attributes from './Components/Attributes.jsx';
 import Additional from './Components/Additional.jsx';
 import axios from 'axios';
-import { buttonStyle } from './style.js';
+import { buttonStyle, body } from './style.js';
 
 class DescriptionService extends React.Component {
   constructor(props) {
@@ -67,8 +67,8 @@ class DescriptionService extends React.Component {
 
   render() {
     return (
-      <div id='indexComponent'>
-        <div id='buttons'>
+      <div style={body} id='indexComponent'>
+        <div style={{textAlign: 'center'}} id='buttons'>
           <button id='description' style={buttonStyle} onClick={this.changeModule}>Description</button>
           <button id='directions' style={buttonStyle} onClick={this.changeModule}>Directions</button>
           <button id='attributes' style={buttonStyle} onClick={this.changeModule}>Attributes/Specifications</button>

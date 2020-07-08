@@ -1,3 +1,13 @@
+const body = {
+  margin: '0',
+  padding: '0',
+  border: '0',
+  fontSize: '100%',
+  verticalAlign: 'baseline',
+  display: 'block',
+  width: '900px' 
+}
+
 const buttonStyle = {
   color: '#005891',
   fontSize: '.9375em',
@@ -40,7 +50,11 @@ const liGrey = {
 const ul = {
   width: '34%',
   float: 'right',
-  margin: '0'
+  margin: '0',
+  fontFamily: 'Arial,sans-serif',
+  lineHeight: '1.25em',
+  listStyle: 'none'
+  
 }
 
 const left = {
@@ -66,7 +80,21 @@ const divStyle = {
   padding: '20px'
 }
 
+const directions = {
+  fontFamily: 'Arial,sans-serif',
+  color: '#333',
+  fontSize: '.9375em',
+  lineHeight: '1.6em'
+}
+
+const additional = {
+  fontFamily: 'tahoma, arial, helvetica, sans-serif',
+  fontSize: '12px',
+  color: '#333'
+}
+
 export  {
+  body,
   buttonStyle,
   spanKey,
   spanVal,
@@ -75,7 +103,9 @@ export  {
   left,
   leftUl,
   p,
-  divStyle
+  divStyle,
+  directions,
+  additional
 }
 // var p = {
 //   font-family: Arial,sans-serif;

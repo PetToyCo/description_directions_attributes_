@@ -1,33 +1,34 @@
 import React from 'react';
+import { spanKey, spanVal, liGrey, ul } from '../style.js';
 
 var Attributes = (props) => (
   <div id='attributesTab'>
-    <ul className='table2'>
-      <li className='tableLine'>
-      <span className='key'>Additional Features</span>
-      <span className='val'></span>
+    <ul style={ul} className='table2'>
+      <li style={liGrey} className='tableLine'>
+      <span style={spanKey} className='key'>Additional Features</span>
+      <span style={spanVal} className='val'></span>
       </li>
       <li className='tableLine gray'>
-      <span className='key'>Primary Color</span>
-      <span className='val'>{props.attributes.primaryColor}</span>
+      <span style={spanKey} className='key'>Primary Color</span>
+      <span style={spanVal} className='val'>{props.attributes.primaryColor}</span>
       </li>
-      <li className='tableLine'>
-      <span className='key'>Material</span>
-      <span className='val'>{props.attributes.material}</span>
+      <li style={liGrey} className='tableLine'>
+      <span style={spanKey} className='key'>Material</span>
+      <span style={spanVal} className='val'>{props.attributes.material}</span>
       </li>
     </ul>
-    <ul className='table2'>
-      <li className='tableLine'>
-      <span className='key'>Item Dimensions</span>
-      <span className='val'></span>
+    <ul style={ul} className='table2'>
+      <li style={liGrey} className='tableLine'>
+      <span style={spanKey} className='key'>Item Dimensions</span>
+      <span style={spanVal} className='val'></span>
       </li>
       <li className='tableLine gray'>
-      <span className='key'>Length</span>
-      <span className='val'>{props.attributes.length}</span>
+      <span style={spanKey} className='key'>Length</span>
+      <span style={spanVal} className='val'>{props.attributes.length}</span>
       </li>
-      <li className='tableLine'>
-      <span className='key'>Width</span>
-      <span className='val'>{props.attributes.width}</span>
+      <li style={liGrey} className='tableLine'>
+      <span style={spanKey} className='key'>Width</span>
+      <span style={spanVal} className='val'>{props.attributes.width}</span>
       </li>
     </ul>
   </div>

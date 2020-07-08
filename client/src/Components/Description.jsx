@@ -1,23 +1,26 @@
 import React from 'react';
+import { spanKey, spanVal, liGrey, ul, left, leftUl, p, divStyle } from '../style.js';
 
 var Description = (props) => (
-  <div id='descriptionTab'>
-    <p>{props.description.title}</p>
-    <ul>
-      <li>{props.description.description}</li>
-    </ul>
-    <ul className='table'>
-      <li className='tableLine'>
-        <span className='key'>SKU</span>
-        <span className='val'>{props.description.SKU}</span>
+  <div style={divStyle} id='descriptionTab'>
+    <div style={left}>
+      <p style={p}>{props.description.title}</p>
+      <ul style={leftUl}>
+        <li>{props.description.description}</li>
+      </ul>
+    </div>
+    <ul style={ul} className='table'>
+      <li style={liGrey} className='tableLine'>
+        <span style={spanKey} className='key'>SKU</span>
+        <span style={spanVal} className='val'>{props.description.SKU}</span>
       </li>
       <li className='tableLine gray'>
-        <span className='key'>Primary Brand</span>
-        <span className='val'>{props.description.primaryBrand}</span>
+        <span style={spanKey} className='key'>Primary Brand</span>
+        <span style={spanVal} className='val'>{props.description.primaryBrand}</span>
       </li>
-      <li className='tableLine'>
-        <span className='key'>Days to Ship</span>
-        <span className='val'>{props.description.daysToShip}</span>
+      <li style={liGrey} className='tableLine'>
+        <span style={spanKey} className='key'>Days to Ship</span>
+        <span style={spanVal} className='val'>{props.description.daysToShip}</span>
       </li>
     </ul>
   </div>

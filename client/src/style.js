@@ -16,8 +16,66 @@ const buttonStyle = {
   height: '50px'
 }
 
+const spanKey = {
+  boxSizing: 'border-box',
+  display: 'inline-block',
+  padding: '9px 11px',
+  color: '#333',
+  width: '40%',
+  fontWeight: 'bold'
+}
+
+const spanVal = {
+  boxSizing: 'border-box',
+  display: 'inline-block',
+  padding: '9px 11px'
+}
+
+const liGrey = {
+  backgroundColor: 'rgba(233,236,237,0.5)',
+  borderTop: '1px solid #d4dadc',
+  borderBottom: '1px solid #d4dadc'
+}
+
+const ul = {
+  width: '34%',
+  float: 'right',
+  margin: '0'
+}
+
+const left = {
+  width: '66%',
+  float: 'left'
+}
+
+const leftUl = {
+  color: '#333',
+  fontSize: '.9375em',
+  marginLeft: '20px'
+}
+
+const p = {
+  color: '#333',
+  fontSize: '.9375em',
+  lineHeight: '1.6em'
+}
+
+const divStyle = {
+  position: 'relative',
+  width: '100%',
+  padding: '20px'
+}
+
 export  {
-  buttonStyle
+  buttonStyle,
+  spanKey,
+  spanVal,
+  liGrey,
+  ul,
+  left,
+  leftUl,
+  p,
+  divStyle
 }
 // var p = {
 //   font-family: Arial,sans-serif;

@@ -93,6 +93,23 @@ const additional = {
   color: '#333'
 }
 
+const italKey = {
+  fontStyle: 'italic',
+  boxSizing: 'border-box',
+  display: 'inline-block',
+  padding: '9px 11px',
+  color: '#333',
+  width: '40%',
+  fontWeight: 'bold',
+  textAlign: 'left',
+  fontSize: '0.9375em'
+}
+
+// const leftTable = {
+//   display: 'block',
+//   float: 'left'
+// }
+
 export  {
   body,
   buttonStyle,
@@ -105,7 +122,8 @@ export  {
   p,
   divStyle,
   directions,
-  additional
+  additional,
+  italKey
 }
 // var p = {
 //   font-family: Arial,sans-serif;

@@ -17,6 +17,8 @@ class DescriptionService extends React.Component {
     }
 
     this.changeModule = this.changeModule.bind(this);
+    this.onMouseOver = this.onMouseOver.bind(this);
+    this.onMouseOut = this.onMouseOut.bind(this);
   }
 
   //Development componentDidMount. Hardcoded to item 100
@@ -64,15 +66,25 @@ class DescriptionService extends React.Component {
     });
   }
 
+  onMouseOver(e) {
+    var id = e.target.id;
+    document.getElementById(id).style.color = '#003a60';
+  }
+
+  onMouseOut(e) {
+    var id = e.target.id;
+    document.getElementById(id).style.color = '#005891';
+  }
+
 
   render() {
     return (
       <div style={body} id='indexComponent'>
         <div style={{textAlign: 'center'}} id='buttons'>
-          <button id='description' style={buttonStyle} onClick={this.changeModule}>Description</button>
-          <button id='directions' style={buttonStyle} onClick={this.changeModule}>Directions</button>
-          <button id='attributes' style={buttonStyle} onClick={this.changeModule}>Attributes/Specifications</button>
-          <button id='additional' style={buttonStyle} onClick={this.changeModule}>Additional Details</button>
+          <button id='descriptionB' style={buttonStyle} onClick={this.changeModule} onMouseEnter={this.onMouseOver} onMouseLeave={this.onMouseOut}>Description</button>
+          <button id='directions' style={buttonStyle} onClick={this.changeModule} onMouseEnter={this.onMouseOver} onMouseLeave={this.onMouseOut}>Directions</button>
+          <button id='attributes' style={buttonStyle} onClick={this.changeModule} onMouseEnter={this.onMouseOver} onMouseLeave={this.onMouseOut}>Attributes/Specifications</button>
+          <button id='additional' style={buttonStyle} onClick={this.changeModule} onMouseEnter={this.onMouseOver} onMouseLeave={this.onMouseOut}>Additional Details</button>
         </div>
         {this.state.current === 'description' && <Description description={this.state.data.description}/>}
         {this.state.current === 'directions' && <Directions directions={this.state.data.directions.directions}/>}

@@ -6,12 +6,15 @@ const app = express();
 
 //crossorigin permission for 3004 and 3006
 app.use((req, res, next) => {
-  if (req.headers.referer.includes('3004')) {
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
-  } else if (req.headers.referer.includes('3005')) {
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3005');
-  } else if (req.headers.referer.includes('3006')) {
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3006');
+  const { referer } = req.headers;
+  if (referer) {
+    if (req.headers.referer.includes('3004')) {
+      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
+    } else if (req.headers.referer.includes('3005')) {
+      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3005');
+    } else if (req.headers.referer.includes('3006')) {
+      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3006');
+    }
   }
   next();
 });
@@ -41,37 +44,37 @@ app.get('/descriptionObject/:itemId', (req, res) => {
   console.log('itemId: ', itemId);
 
   db.getDescriptionObject(itemId)
-  .then(data => {
-    console.log('success getting descriptionObj');
+    .then(data => {
+      console.log('success getting descriptionObj');
 
-    var formattedData = {
-      description: {
-        title: data[0].title,
-        description: data[0].description,
-        SKU: data[0].SKU,
-        primaryBrand: data[0].primaryBrand,
-        daysToShip: data[0].daysToShip
-      },
-      directions: {
-        directions: data[0].directions
-      },
-      attributes: {
-        primaryColor: data[0].primaryColor,
-        material: data[0].material,
-        length: data[0].length,
-        width: data[0].width
-      },
-      details: {
-        additionalDetails: data[0].additionalDetails
+      var formattedData = {
+        description: {
+          title: data[0].title,
+          description: data[0].description,
+          SKU: data[0].SKU,
+          primaryBrand: data[0].primaryBrand,
+          daysToShip: data[0].daysToShip
+        },
+        directions: {
+          directions: data[0].directions
+        },
+        attributes: {
+          primaryColor: data[0].primaryColor,
+          material: data[0].material,
+          length: data[0].length,
+          width: data[0].width
+        },
+        details: {
+          additionalDetails: data[0].additionalDetails
+        }
       }
-    }
 
-    res.send(formattedData);
-  })
-  .catch(err => {
-    res.status(500).send(err);
-    console.log('error in getDescriptionObject: ', err);
-  })
+      res.send(formattedData);
+    })
+    .catch(err => {
+      res.status(500).send(err);
+      console.log('error in getDescriptionObject: ', err);
+    })
 
 });
 

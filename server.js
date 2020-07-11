@@ -4,11 +4,17 @@ const db = require('./database-mongodb/index.js');
 
 const app = express();
 
-//crossorigin permission
+//crossorigin permission for 3004 and 3006
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+  if (req.headers.referer.includes('3004')) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
+  } else if (req.headers.referer.includes('3005')) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3005');
+  } else if (req.headers.referer.includes('3006')) {
+    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3006');
+  }
   next();
-})
+});
 
 app.use(express.static(path.join(__dirname, 'client/public')));
 

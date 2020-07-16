@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/description_directions_attributes');
+
+//development:
+// mongoose.connect('mongodb://localhost/description_directions_attributes');
+
+//production:
+mongoose.connect('mongodb://mongo:27017/description_directions_attributes');
 
 var db = mongoose.connection;
 

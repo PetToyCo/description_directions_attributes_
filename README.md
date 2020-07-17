@@ -1,4 +1,4 @@
-# Description_Directions_Attributes/Specifications_Details
+# Description/Directions/Attributes/AdditionalDetails
 
 This service builds a tabbed module that presents more detailed item information.
 
@@ -6,6 +6,8 @@ This service builds a tabbed module that presents more detailed item information
 - https://github.com/PetToyCo/reviews
 - https://github.com/PetToyCo/photo-gallery
 - https://github.com/PetToyCo/elizabeth_ProxyServer
+- https://github.com/PetToyCo/mainTitle_price
+- https://github.com/PetToyCo/ProductRecommendations
 
 ## Table of Contents
   1. Usage
@@ -57,7 +59,7 @@ npm start
 This service has two endpoints. One to retrieve an item's descriptionObject, and one to retrieve its title and primaryBrand. To retrieve data for a specific item (100-199), navigate to:
 
 localhost:3002/descriptionObject/### 
-
+```
 JSON response format:
 {
   description: {
@@ -80,17 +82,17 @@ JSON response format:
     additionalDetails: “item’s advertising copy”
   }
  }
-
+```
 
 
 localhost:3002/itemInformation/###
-
+```
 JSON response format:
 {
   title: “full name of item”,
   primaryBrand: “brand name”
 }
-
+```
 
 ## Requirements
 Node 10.15.3
@@ -107,3 +109,4 @@ From within the root directory:
 npm run test (to run all tests)
 npm run testFront (to run only the front-end enzyme tests)
 npm run testBack (to run only the back-end jest tests)
+

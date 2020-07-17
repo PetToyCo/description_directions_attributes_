@@ -4,6 +4,7 @@ services:
     image: descriptionservice
     build: .
     command: "node start.js"
+    command: "node seed.js"
     ports:
       - "3002:3002"
     depends_on:

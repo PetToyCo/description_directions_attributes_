@@ -1,5 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/description_directions_attributes');
+
+//development:
+//mongoose.connect('mongodb://localhost/description_directions_attributes');
+
+//production:
+mongoose.connect('mongodb://ec2-52-14-208-55.us-east-2.compute.amazonaws.com/Description', {useUnifiedTopology: true, useNewUrlParser: true});
 
 var db = mongoose.connection;
 

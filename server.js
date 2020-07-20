@@ -6,16 +6,22 @@ const app = express();
 
 //crossorigin permission for 3000, 3004, 3005 and 3006
 app.use((req, res, next) => {
+  //local address
+  //const address = '127.0.0.1'
+
+  //deployed address
+  const address = '52.14.208.55';
+
   const { referer } = req.headers;
   if (referer) {
     if (req.headers.referer.includes('3004')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3004');
+      res.header('Access-Control-Allow-Origin', `http://${address}:3004`);
     } else if (req.headers.referer.includes('3005')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3005');
+      res.header('Access-Control-Allow-Origin', `http://${address}:3005`);
     } else if (req.headers.referer.includes('3006')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3006');
+      res.header('Access-Control-Allow-Origin', `http://${address}:3006`);
     } else if (req.headers.referer.includes('3000')) {
-      res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:3000');
+      res.header('Access-Control-Allow-Origin', `http://${address}:3000`);
     }
   }
   next();

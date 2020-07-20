@@ -14,6 +14,7 @@ This service builds a tabbed module that presents more detailed item information
   2. Endpoints
   3. Requirements
   4. Development
+  5. Production
 
 ## Usage
 This service is meant to be used with a proxy server. If that is your intended use:
@@ -110,3 +111,9 @@ npm run test (to run all tests)
 npm run testFront (to run only the front-end enzyme tests)
 npm run testBack (to run only the back-end jest tests)
 
+## Production
+To switch this service to production mode:
+1. Comment out line 4 and un-comment line 7 in database-mongodb/index.js
+2. Comment out line 46 an un-comment line 49 in client/src/index.jsx
+3. Comment out line 10 and un-comment line 13 in server.js
+4. If the deployed IP has changed, make sure to replace it in the above three places.

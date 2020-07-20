@@ -38,12 +38,16 @@ class DescriptionService extends React.Component {
 
   
   //Proxy componentDidMount
-
   componentDidMount() {
     const item = window.location.href.split('=')[1];
-    //console.log('item: ', item);
 
-    axios.get(`http://127.0.0.1:3002/descriptionObject/${item}`)
+    //local address
+    //const address = '127.0.0.1'
+
+    //deployed address
+    const address = '52.14.208.55';
+
+    axios.get(`http://${address}:3002/descriptionObject/${item}`)
       .then(data => {
         console.log('success getting data in componentDidMount');
         this.setState({

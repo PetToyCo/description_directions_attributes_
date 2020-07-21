@@ -1,21 +1,5 @@
 FROM node:10.15.3
 
-# WORKDIR /description
-
-# COPY package.json package-lock.json ./
-
-# RUN npm install
-
-# COPY . .
-
-# CMD npm run seed && npm start
-
-
-
-
-
-
-
 ADD ./package.json /tmp/
 
 RUN cd /tmp/ && npm install

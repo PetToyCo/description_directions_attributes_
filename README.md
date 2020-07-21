@@ -17,6 +17,8 @@ This service builds a tabbed module that presents more detailed item information
   5. Production
 
 ## Usage
+Please Note: This service is currently in Production mode. Please see the Production section if you need to return it to development mode, then continue with the steps below.
+
 This service is meant to be used with a proxy server. If that is your intended use:
 1. From the root directory:
 npm install
@@ -112,8 +114,8 @@ npm run testFront (to run only the front-end enzyme tests)
 npm run testBack (to run only the back-end jest tests)
 
 ## Production
-To switch this service to production mode:
-1. Comment out line 4 and un-comment line 7 in database-mongodb/index.js
-2. Comment out line 46 an un-comment line 49 in client/src/index.jsx
-3. Comment out line 10 and un-comment line 13 in server.js
+To switch this service out of production mode:
+1. Comment out line 7 and un-comment line 4 in database-mongodb/index.js
+2. Comment out line 49 an un-comment line 46 in client/src/index.jsx
+3. Comment out line 13 and un-comment line 10 in server.js
 4. If the deployed IP has changed, make sure to replace it in the above three places.

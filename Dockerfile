@@ -1,33 +1,33 @@
 FROM node:10.15.3
 
-WORKDIR /description
+# WORKDIR /description
 
-COPY package.json package-lock.json ./
+# COPY package.json package-lock.json ./
 
-RUN npm install
+# RUN npm install
 
-COPY . .
+# COPY . .
 
-CMD npm run seed && npm run server
-
-
+# CMD npm run seed && npm start
 
 
 
 
 
-# ADD ./package.json /tmp/
 
-# RUN cd /tmp/ && npm install
 
-# RUN npm install -g pm2
+ADD ./package.json /tmp/
 
-# ADD ./ /code/
+RUN cd /tmp/ && npm install
 
-# RUN cp -r /tmp/node_modules/ /code/
+RUN npm install -g pm2
 
-# EXPOSE 3002
+ADD ./ /code/
 
-# WORKDIR /code
+RUN cp -r /tmp/node_modules/ /code/
 
-# ENTRYPOINT [ "pm2-docker", "start.js"]
+EXPOSE 3002
+
+WORKDIR /code
+
+ENTRYPOINT [ "pm2-docker", "start.js"]

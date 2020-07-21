@@ -22,7 +22,7 @@ class DescriptionService extends React.Component {
   //Development componentDidMount. Hardcoded to item 100
 
   // componentDidMount() {
-  //   axios.get('/descriptionObject/100')
+  //   axios.get('/descriptionObject/2010')
   //     .then(data => {
   //       console.log('success getting data in componentDidMount: ', data);
   //       this.setState({
@@ -42,12 +42,12 @@ class DescriptionService extends React.Component {
     const item = window.location.href.split('=')[1];
 
     //local address
-    //const address = '127.0.0.1'
+    //const address = 'http://127.0.0.1'
 
     //deployed address
     const address = '52.14.208.55';
 
-    axios.get(`http://${address}:3002/descriptionObject/${item}`)
+    axios.get(`${address}:3002/descriptionObject/${item}`)
       .then(data => {
         console.log('success getting data in componentDidMount');
         this.setState({

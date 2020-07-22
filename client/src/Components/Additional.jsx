@@ -1,9 +1,9 @@
 import React from 'react';
-//import { additional } from '../style.js';
+import { additionalStyleP, additionalStyleD } from '../style.js';
 
 var Additional = (props) => (
-  <div id='additionalTab' >
-    <p>{props.additional}</p>
+  <div id='additionalTab' style={additionalStyleD}>
+    <p style={additionalStyleP}>{props.additional}</p>
   </div>
 )
 

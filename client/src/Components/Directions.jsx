@@ -1,9 +1,9 @@
 import React from 'react';
-//import { directions } from '../style.js';
+import { directionStyleP, directionStyleD } from '../style.js';
 
 var Directions = (props) => (
-  <div id='directionsTab' >
-    <p>{props.directions}</p>
+  <div id='directionsTab' style={directionStyleD} >
+    <p style={directionStyleP}>{props.directions}</p>
   </div>
 )
 

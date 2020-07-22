@@ -19,8 +19,43 @@ const button = {
   backgroundColor: 'white'
 }
 
+const directionStyleP = {
+  color: '#333',
+  fontSize: '.9375em',
+  lineHeight: '1.6em',
+  fontFamily: 'Arial, sans-serif'
+}
+
+const directionStyleD = {
+  margin: '0px 20px',
+  padding: '0',
+  border: '0',
+  fontSize: '100%',
+  font: 'inherit',
+  verticalAlign: 'baseline'
+}
+
+const additionalStyleP = {
+  color: '#333',
+  fontFamily: 'tahoma, arial, helvetica, sans-serif',
+  fontSize: '12px'
+}
+
+const additionalStyleD = {
+  margin: '0px 20px',
+  padding: '0',
+  border: '0',
+  fontSize: '100%',
+  font: 'inherit',
+  verticalAlign: 'baseline'
+}
+
 export {
-  button
+  button,
+  directionStyleP,
+  directionStyleD,
+  additionalStyleP,
+  additionalStyleD
 }
 
 

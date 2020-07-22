@@ -10,7 +10,9 @@ app.use((req, res, next) => {
   //const address = 'http://127.0.0.1'
 
   //deployed address
-  const address = 'http://52.14.208.55';
+  var address = 'http://52.14.208.55';
+  var address2 = 'http://54.183.137.155'; // nick
+  var address3 = 'http://18.224.229.28'; // kate
 
   const { referer } = req.headers;
   if (referer) {
@@ -21,7 +23,11 @@ app.use((req, res, next) => {
     } else if (req.headers.referer.includes('3006')) {
       res.header('Access-Control-Allow-Origin', `${address}:3006`);
     } else if (req.headers.referer.includes('3000')) {
-      res.header('Access-Control-Allow-Origin', `${address}:3000`);
+      res.header('Access-Control-Allow-Origin', `${address}:3000`); //my proxy
+    } else if (req.headers.referer.includes('3000')) {
+      res.header('Access-Control-Allow-Origin', `${address2}:3000`); //nick's proxy
+    } else if (req.headers.referer.includes('3000')) {
+      res.header('Access-Control-Allow-Origin', `${address3}:3000`); //kate's proxy
     }
   }
   next();

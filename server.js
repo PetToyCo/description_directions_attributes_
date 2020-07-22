@@ -10,7 +10,7 @@ app.use((req, res, next) => {
   //const address = 'http://127.0.0.1'
 
   //deployed address
-  const address = '52.14.208.55';
+  const address = 'http://52.14.208.55';
 
   const { referer } = req.headers;
   if (referer) {
@@ -49,12 +49,10 @@ app.get('/itemInformation/:itemId', (req, res) => {
 //get full description object for an item
 app.get('/descriptionObject/:itemId', (req, res) => {
   const itemId = req.params.itemId;
-  //const itemId = 2010;
-  console.log('itemId: ', itemId);
 
   db.getDescriptionObject(itemId)
     .then(data => {
-      console.log('success getting descriptionObj ', itemId, data);
+      console.log('success getting descriptionObj');
 
       var formattedData = {
         description: {
@@ -77,8 +75,6 @@ app.get('/descriptionObject/:itemId', (req, res) => {
           additionalDetails: data[0].additionalDetails
         }
       }
-
-      var formattedData = data;
 
       res.send(formattedData);
     })

@@ -45,7 +45,7 @@ class DescriptionService extends React.Component {
     //const address = 'http://127.0.0.1'
 
     //deployed address
-    const address = '52.14.208.55';
+    const address = 'http://52.14.208.55';
 
     axios.get(`${address}:3002/descriptionObject/${item}`)
       .then(data => {

@@ -5,7 +5,7 @@ import Directions from './Components/Directions.jsx';
 import Attributes from './Components/Attributes.jsx';
 import Additional from './Components/Additional.jsx';
 import axios from 'axios';
-import { buttonStyle } from './style.js';
+import { body, buttonStyle } from './style.js';
 
 class DescriptionService extends React.Component {
   constructor(props) {
@@ -17,6 +17,8 @@ class DescriptionService extends React.Component {
     }
 
     this.changeModule = this.changeModule.bind(this);
+    this.onMouseOver = this.onMouseOver.bind(this);
+    this.onMouseOut = this.onMouseOut.bind(this);
   }
 
   //Development componentDidMount. Hardcoded to item 100
@@ -42,10 +44,10 @@ class DescriptionService extends React.Component {
     const item = window.location.href.split('=')[1];
 
     //local address
-    //const address = 'http://127.0.0.1'
+    const address = 'http://127.0.0.1'
 
     //deployed address
-    const address = 'http://52.14.208.55';
+    //const address = 'http://52.14.208.55';
 
     axios.get(`${address}:3002/descriptionObject/${item}`)
       .then(data => {
@@ -68,15 +70,25 @@ class DescriptionService extends React.Component {
     });
   }
 
+  onMouseOver(e) {
+    var element = document.getElementById(e.target.id);
+    element.style.color = '#00395e';
+  }
+
+  onMouseOut(e) {
+    var element = document.getElementById(e.target.id);
+    element.style.color = '#005891';
+  }
+
 
   render() {
     return (
-      <div id='indexComponent'>
-        <div id='buttons'>
-          <button id='description' style={buttonStyle} onClick={this.changeModule}>Description</button>
-          <button id='directions' style={buttonStyle} onClick={this.changeModule}>Directions</button>
-          <button id='attributes' style={buttonStyle} onClick={this.changeModule}>Attributes/Specifications</button>
-          <button id='additional' style={buttonStyle} onClick={this.changeModule}>Additional Details</button>
+      <div id='indexComponent' style={body}>
+        <div id='buttons' style={{width: '80%', margin: '0 auto', padding: '40px'}}>
+          <button id='description' style={buttonStyle} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseOut} onClick={this.changeModule}>Description</button>
+          <button id='directions' style={buttonStyle} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseOut} onClick={this.changeModule}>Directions</button>
+          <button id='attributes' style={buttonStyle} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseOut} onClick={this.changeModule}>Attributes/Specifications</button>
+          <button id='additional' style={buttonStyle} onMouseOver={this.onMouseOver} onMouseLeave={this.onMouseOut} onClick={this.changeModule}>Additional Details</button>
         </div>
         {this.state.current === 'description' && <Description description={this.state.data.description}/>}
         {this.state.current === 'directions' && <Directions directions={this.state.data.directions.directions}/>}

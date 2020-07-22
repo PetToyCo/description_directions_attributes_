@@ -50,12 +50,64 @@ const additionalStyleD = {
   verticalAlign: 'baseline'
 }
 
+const ulAtt = {
+  width: '34%',
+  margin: '0',
+  fontFamily: 'Arial, sans-serif',
+  lineHeight: '1.25em',
+  listStyle: 'none',
+  marginBottom: '20px'
+}
+
+const liGrey = {
+  backgroundColor: 'rgba(233,236,237,0.5)',
+  borderTop: '1px solid #d4dadc',
+  borderBottom: '1px solid #d4dadc'
+}
+
+const liGreyItal = {
+  backgroundColor: 'rgba(233,236,237,0.5)',
+  borderTop: '1px solid #d4dadc',
+  borderBottom: '1px solid #d4dadc',
+  fontStyle: 'italic',
+  textAlign: 'left',
+  fontWeight: 'bold',
+  fontSize: '0.9375em',
+  whiteSpace: 'nowrap'
+}
+
+const spanKey = {
+  boxSizing: 'border-box',
+  display: 'inline-block',
+  padding: '9px 11px',
+  color: '#333',
+  width: '40%',
+  fontWeight: 'bold',
+  fontSize: '0.9375em'
+}
+
+const spanVal = {
+  boxSizing: 'border-box',
+  display: 'inline-block',
+  padding: '9px 11px',
+  position: 'relative',
+  left: '135px',
+  fontSize: '0.9375em',
+  color: '#333',
+  vertialAlign: 'middle'
+}
+
 export {
   button,
   directionStyleP,
   directionStyleD,
   additionalStyleP,
-  additionalStyleD
+  additionalStyleD,
+  spanKey,
+  spanVal,
+  ulAtt,
+  liGrey,
+  liGreyItal
 }
 
 

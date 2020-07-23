@@ -52,6 +52,9 @@ class DescriptionService extends React.Component {
     axios.get(`${address}:3002/descriptionObject/${item}`)
       .then(data => {
         console.log('success getting data in componentDidMount');
+        var bullets = data.data.description.description.split('. ');
+        data.data.description.description = bullets;
+
         this.setState({
           current: 'descriptionB',
           data: data.data

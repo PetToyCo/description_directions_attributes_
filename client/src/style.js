@@ -59,6 +59,46 @@ const ulAtt = {
   marginBottom: '20px'
 }
 
+const ulDesc = {
+  width: '34%',
+  margin: '0',
+  fontFamily: 'Arial, sans-serif',
+  lineHeight: '1.25em',
+  listStyle: 'none',
+  marginBottom: '20px',
+  float: 'right'
+}
+
+const title = {
+  color: '#333',
+  fontSize: '.9375em',
+  fontFamily: 'Arial, sans-serif',
+  lineHeight: '1.6em',
+  display: 'block',
+  marginBlockStart: '1em',
+  marginBlockEnd: '1em',
+  marginInlineStart: '0px',
+  marginInlineEnd: '0px',
+  textAlign: 'left',
+  verticalAlign: 'baseline',
+  margin: '0',
+  padding: '0'
+}
+
+const bullets = {
+  display: 'block',
+  marginBlockStart: '1em',
+  marginBlockEnd: '1em',
+  marginInlineStart: '0px',
+  marginInlineEnd: '40px',
+  lineHeight: '1.25em',
+  color: '#333',
+  fontSize: '.9375em',
+  fontFamily: 'Arial, sans-serif',
+  textAlign: 'left',
+  margin: '0',
+}
+
 const liGrey = {
   backgroundColor: 'rgba(233,236,237,0.5)',
   borderTop: '1px solid #d4dadc',
@@ -97,6 +137,17 @@ const spanVal = {
   vertialAlign: 'middle'
 }
 
+const spanValDesc = {
+  boxSizing: 'border-box',
+  display: 'inline-block',
+  padding: '9px 11px',
+  position: 'relative',
+  left: '10px',
+  fontSize: '0.9375em',
+  color: '#333',
+  vertialAlign: 'middle'
+}
+
 export {
   button,
   directionStyleP,
@@ -105,9 +156,13 @@ export {
   additionalStyleD,
   spanKey,
   spanVal,
+  spanValDesc,
   ulAtt,
   liGrey,
-  liGreyItal
+  liGreyItal,
+  ulDesc,
+  title,
+  bullets
 }
 
 

@@ -117,5 +117,5 @@ npm run testBack (to run only the back-end jest tests)
 To switch this service out of production mode:
 1. Comment out line 7 and un-comment line 4 in database-mongodb/index.js
 2. Comment out line 49 an un-comment line 46 in client/src/index.jsx
-3. Comment out line 13 and un-comment line 10 in server.js
+3. Comment out lines 15-17 and un-comment lines 10-12 in server.js
 4. If the deployed IP has changed, make sure to replace it in the above three places.

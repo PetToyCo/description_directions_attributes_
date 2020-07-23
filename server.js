@@ -8,6 +8,8 @@ const app = express();
 app.use((req, res, next) => {
   //local address
   //const address = 'http://127.0.0.1'
+  //const address2 = 'http://127.0.0.1'
+  //const address3 = 'http://127.0.0.1'
 
   //deployed address
   var address = 'http://52.14.208.55'; //me

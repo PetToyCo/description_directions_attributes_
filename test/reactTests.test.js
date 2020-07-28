@@ -23,7 +23,7 @@ describe('DescriptionService', () => {
 
   var fakeData1 = {
     title: 'Pet Toy',
-    description: 'item description',
+    description: ['item description', 'item description'],
     SKU: '8902345',
     primaryBrand: 'brand',
     daysToShip: 'ships in two days'
@@ -63,21 +63,21 @@ describe('DescriptionService', () => {
   it('should find the #descriptionTab div when Description is mounted', () => {
     wrapper = shallow(<Description description={fakeData1} />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#descriptionTab').length).toBe(1);
-    expect((wrapper).find('span').length).toBe(6);
+    expect((wrapper).find('span').length).toBe(8);
   });
 
-  it('should find the #descriptionTab div when Description is mounted', () => {
+  it('should find the #directionsTab div when Directions is mounted', () => {
     wrapper = shallow(<Directions directions={fakeData2} />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#directionsTab').length).toBe(1);
   });
 
-  it('should find the #descriptionTab div when Description is mounted', () => {
+  it('should find the #attributesTab div when Attributes is mounted', () => {
     wrapper = shallow(<Attributes attributes={fakeData3} />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#attributesTab').length).toBe(1);
     expect((wrapper).find('span').length).toBe(12);
   });
 
-  it('should find the #descriptionTab div when Description is mounted', () => {
+  it('should find the #additionalTab div when Additional is mounted', () => {
     wrapper = shallow(<Additional additional={fakeData4} />,  { disableLifecycleMethods: true });
     expect((wrapper).find('#additionalTab').length).toBe(1);
   });

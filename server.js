@@ -7,14 +7,14 @@ const app = express();
 //crossorigin permission for 3000, 3004, 3005 and 3006
 app.use((req, res, next) => {
   //local address
-  // const address = 'http://127.0.0.1'
-  // const address2 = 'http://127.0.0.1'
-  // const address3 = 'http://127.0.0.1'
+  const address = 'http://127.0.0.1'
+  const address2 = 'http://127.0.0.1'
+  const address3 = 'http://127.0.0.1'
 
   //deployed address
-  var address = 'http://52.14.208.55'; //me
-  var address2 = 'http://54.183.137.155'; // nick
-  var address3 = 'http://18.224.229.28'; // kate
+  // var address = 'http://52.14.208.55'; //me
+  // var address2 = 'http://54.183.137.155'; // nick
+  // var address3 = 'http://18.224.229.28'; // kate
 
   const { referer } = req.headers;
   if (referer) {
@@ -48,17 +48,43 @@ app.use(express.static(path.join(__dirname, 'client/public')));
 //get title and brand name for an item
 app.get('/itemInformation/:itemId', (req, res) => {
   const itemId = req.params.itemId;
-  console.log('itemId: ', itemId);
 
-  db.getTitleAndBrand(itemId)
-    .then(data => {
-      console.log('success getting title and brand');
-      res.send(data[0]);
-    })
-    .catch(err => {
-      res.status(500).send(err);
-      console.log('error in getTitleAndBrand: ', err);
-    })
+  if (itemId.includes('array')) {
+    const itemsInArray = itemId.substring(5);
+    const itemIds = itemsInArray.split(',');
+    const invalidId = false;
+
+    for (var i = 0; i < itemIds.length; i++) {
+      if (itemIds[i] < 100 || itemIds[i] > 199) {
+        res.status(404).send('Invalid itemId');
+        invalidId = true;
+        break;
+      }
+    }
+
+    if (!invalidId) {
+      db.getTitlesAndBrands(itemIds)
+        .then(data => {
+          res.send(data);
+        })
+        .catch(err => {
+          res.status(404).send('error in getTitlesAndBrands: ', err);
+        })
+    }
+  } else if (itemId < 100 || itemId > 199) {
+    console.log(itemId);
+    res.status(404).send('Invalid itemId');
+  } else {
+    db.getTitleAndBrand(itemId)
+      .then(data => {
+        console.log('success getting title and brand');
+        res.send(data[0]);
+      })
+      .catch(err => {
+        res.status(500).send(err);
+        console.log('error in getTitleAndBrand: ', err);
+      })
+  }
 });
 
 //get full description object for an item

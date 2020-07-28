@@ -1,10 +1,10 @@
 const mongoose = require('mongoose');
 
 //development:
-//mongoose.connect('mongodb://localhost/description_directions_attributes');
+mongoose.connect('mongodb://localhost/description_directions_attributes');
 
 //production:
-mongoose.connect('mongodb://ec2-52-14-208-55.us-east-2.compute.amazonaws.com/Description', {useUnifiedTopology: true, useNewUrlParser: true});
+//mongoose.connect('mongodb://ec2-52-14-208-55.us-east-2.compute.amazonaws.com/Description', { useUnifiedTopology: true, useNewUrlParser: true });
 
 var db = mongoose.connection;
 
@@ -37,14 +37,19 @@ const descriptionSchema = new mongoose.Schema({
 const Description = mongoose.model('Description', descriptionSchema);
 
 const getTitleAndBrand = (itemId) => {
-  return Description.find({itemId: itemId}).select('title primaryBrand -_id').lean().exec();
+  return Description.find({ itemId: itemId }).select('title primaryBrand -_id').lean().exec();
+}
+
+const getTitlesAndBrands = (itemIds) => {
+  return Description.find({ itemId: { $in: itemIds } }).select('title primaryBrand -_id').lean().exec();
 }
 
 const getDescriptionObject = (itemId) => {
-  return Description.find({itemId: itemId}).select('-_id -__v').lean().exec();
+  return Description.find({ itemId: itemId }).select('-_id -__v').lean().exec();
 }
 
 module.exports.Description = Description;
 module.exports.db = db;
 module.exports.getTitleAndBrand = getTitleAndBrand;
 module.exports.getDescriptionObject = getDescriptionObject;
+module.exports.getTitlesAndBrands = getTitlesAndBrands;

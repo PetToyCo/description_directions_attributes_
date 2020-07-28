@@ -41,7 +41,7 @@ const getTitleAndBrand = (itemId) => {
 }
 
 const getTitlesAndBrands = (itemIds) => {
-  return Description.find({ itemId: { $in: itemIds } }).select('title primaryBrand -_id').lean().exec();
+  return Description.find({ itemId: { $in: itemIds } }).select('itemId title primaryBrand -_id').lean().exec();
 }
 
 const getDescriptionObject = (itemId) => {

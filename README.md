@@ -87,14 +87,30 @@ JSON response format:
  }
 ```
 
+Note: It is possible to request multiple items at once for itemInformation using the format: /itemInformation/array###,###,###
 
-localhost:3002/itemInformation/###
+Endpoint: /itemInformation/###
 ```
 JSON response format:
 {
   title: “full name of item”,
   primaryBrand: “brand name”
 }
+```
+
+Endpoint: /itemInformation/array###,###
+```
+JSON response format:
+[
+{
+  title: “full name of item”,
+  primaryBrand: “brand name”
+},
+{
+  title: “full name of item”,
+  primaryBrand: “brand name”
+}
+]
 ```
 
 ## Requirements
